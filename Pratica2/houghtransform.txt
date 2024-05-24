@@ -1,0 +1,6 @@
+acumulator array em rho and theta
+quantas linhas - contar picos(pontos com mais votos) no acumulator array
+It keeps track of the intersection between curves of every point in the image
+If the number of intersections is above some threshold(votes), then it declares it as a line with the parameters (θ,rθ) of the intersection point.
+
+opencv - HoughLines() -> It gives you as result a vector of couples (θ,rθ) of intersection points

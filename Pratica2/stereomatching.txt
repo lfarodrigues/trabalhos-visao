@@ -1,0 +1,18 @@
+RANSAC - fit de pontos numa reta, tenta eliminar outliers
+8PA - achar matriz fundamental pela correspondencia entre duas cameras
+
+If we are using only the left camera, we can't find the 3D point corresponding to the point x in image because every point on the line OX projects to the same point on the image plane. But consider the right image also. Now different points on the line OX projects to different points ( x′) in right plane. So with these two images, we can triangulate the correct 3D point. This is the whole idea.
+For a pair of identical cameras with only
+lateral displacement (like the human eye),
+epipolar lines are collinear and horizontal
+Rectification: warp the input images
+(perspective transformation) so that
+epipolar lines are horizontal
+
+objective: finding epipolar lines and epipoles
+
+oque é a matriz fundamental? The fundamental matrix is the
+algebraic representation of epipolar geometry. It relates to the mapping
+between a point on one image to its epipolar line on the other. Fundamental Matrix contains the same information as Essential Matrix in addition to the information about the intrinsics of both cameras so that we can relate the two cameras in pixel coordinates. In simple words, Fundamental Matrix F, maps a point in one image to a line (epiline) in the other image. This is calculated from matching points from both the images. A minimum of 8 such points are required to find the fundamental matrix (while using 8-point algorithm). More points are preferred and use RANSAC to get a more robust result.
+
+https://docs.opencv.org/3.4/da/de9/tutorial_py_epipolar_geometry.html
